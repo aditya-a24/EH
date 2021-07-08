@@ -16,10 +16,38 @@ Some notable headers include:
 
 	Header	                                                  Description
 
-	Time to Live	            This field sets an expiry timer for the packet to not clog up your network if it 							 never manages to reach a host or escape!
+	Time to Live	            This field sets an expiry timer for the packet to not clog up your network if it never manages to reach a host or escape!
 
-	Checksum	                This field provides integrity checking for protocols such as TCP/IP. If any data 					         is changed, this value will be different from what was expected and therefore 								corrupt.
+	Checksum	                This field provides integrity checking for protocols such as TCP/IP. If any data is changed, this value will be different from what was expected and therefore corrupt.
 
-	Source Address	            The IP address of the device that the packet is being sent from so that data 								knows where to return to.
+	Source Address	            The IP address of the device that the packet is being sent from so that data knows where to return to.
 	
-	Destination Address	        The device's IP address the packet is being sent to so that data knows where to 							travel next.
+	Destination Address	        The device's IP address the packet is being sent to so that data knows where to travel next.
+
+
+
+# TCP/IP (The Three-Way Handshake).
+
+-> TCP (or Transmission Control Protocol for short) is another one of these rules used in networking.
+
+This protocol is very similar to the OSI model. The TCP/IP protocol consists of four layers and is arguably just a summarised version of the OSI model. These layers are:
+
+    Application
+    Transport
+    Internet
+    Network Interface
+
+Very similar to how the OSI model works, information is added to each layer of the TCP model as the piece of data (or packet) traverses it. As you may recall, this process is known as encapsulation - where the reverse of this process is decapsulation.
+
+One defining feature of TCP is that it is connection-based, which means that TCP must establish a connection between both a client and a device acting as a server before data is sent.
+
+Because of this, TCP guarantees that any data sent will be received on the other end. This process is named the Three-way handshake, which is something we'll come on to discuss shortly. A table comparing the advantages and disadvantages of TCP is located below:
+
+          Advantages of TCP	                                               Disadvantages of TCP
+    Guarantees the integrity of data.	                 Requires a reliable connection between the two devices.If one small chunk of data is not received, then the entire chunk of data cannot be used and must be re-sent.
+
+Capable of synchronising two devices to prevent each     A slow connection can bottleneck another device as the connection will be reserved on the other device the whole time.
+other from being flooded with data in the wrong order.	
+
+Performs a lot more processes for reliability	         TCP is significantly slower than UDP because more work (computing) has to be done by the devices using this protocol.
+

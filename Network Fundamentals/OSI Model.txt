@@ -59,7 +59,6 @@ What is worthy of noting is that sessions are unique — meaning that data canno
 
 	Not only this, but TCP incorporates error checking into its design. Error checking is how TCP can guarantee that data sent from the small chunks in the session layer (layer 5) has then been received and reassembled in the same order.
 
-
 	TCP is used for situations such as file sharing, internet browsing or sending an email. This usage is because these services require the data to be accurate and complete (no good having half a file!).
 
 
