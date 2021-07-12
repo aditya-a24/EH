@@ -26,7 +26,7 @@ Stored cross-site scripting is the most dangerous type of XSS. This is where a m
 
 A attacker creates a payload in a field when signing up to a website that is stored in the websites database. If the website doesn't properly sanitise that field, when the site displays that field on the page, it will execute the payload to everyone who visits it.
 
-The payload could be as simple as ```html
+The payload could be as simple as ```javascript
 
 <script>alert(1)</script>```
 
