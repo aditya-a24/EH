@@ -19,3 +19,13 @@ The extent to the severity of this vulnerability depends on the type of XSS, whi
 - Other browser based exploits - There are millions of possibilities with XSS.
 
 Who knew this was all possible by just visiting a web-page. There are measures put in place to prevent this from happening by your browser and anti-virus.
+
+# Stored XSS
+
+Stored cross-site scripting is the most dangerous type of XSS. This is where a malicious string originates from the websites database. This often happens when a website allows user input that is not sanitised (remove the "bad parts" of a users input) when inserted into the database.
+
+A attacker creates a payload in a field when signing up to a website that is stored in the websites database. If the website doesn't properly sanitise that field, when the site displays that field on the page, it will execute the payload to everyone who visits it.
+
+The payload could be as simple as `html <script>alert(1)</script>`
+
+However, this payload wont just execute in your browser but any other browsers that display the malicious data inserted into the database.
