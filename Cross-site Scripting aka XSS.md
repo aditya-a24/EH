@@ -44,11 +44,11 @@ Reflected XSS is the most common type of XSS attack.
 
 ![alt text](https://i.imgur.com/yX7zRh8.png "An Example")
 
-An attacker crafts a URL containing a malicious payload and sends it to the victim. The victim is tricked by the attacker into clicking the URL. The request could be ` http://example.com/search?keyword=<script>...</script> `
+An attacker crafts a URL containing a malicious payload and sends it to the victim. The victim is tricked by the attacker into clicking the URL. The request could be `http://example.com/search?keyword=<script>...</script>`
 
 The website then includes this malicious payload from the request in the response to the user. The victims browser will execute the payload inside the response. The data the script gathered is then sent back to the attacker (it might not necessarily be sent from the victim, but to another website where the attacker then gathers this data - this protects the attacker from directly receiving the victims data).
 
-# DOM-Based XSS 
+# DOM-Based XSS
 
 > What is the DOM ?
 
@@ -56,9 +56,12 @@ In a DOM-based XSS attack, a malicious payload is not actually parsed by the vic
 
 With reflective xss, an attackers payload will be injected directly on the website and will not matter when other Javascript on the site gets loaded.
 
+```
 <html>
-    You searched for <em><script>...</script></em>
+You searched for <em><script>...</script></em>
+
 </html>
+```
 
 With DOM-Based xss, an attackers payload will only be executed when the vulnerable Javascript code is either loaded or interacted with. It goes through a Javascript function like so:
 
