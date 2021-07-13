@@ -58,12 +58,13 @@ With reflective xss, an attackers payload will be injected directly on the websi
 
 ```
 <html>
-You searched for <em><script>...</script></em>
-
+    You searched for <em><script>...</script></em>
 </html>
 ```
 
 With DOM-Based xss, an attackers payload will only be executed when the vulnerable Javascript code is either loaded or interacted with. It goes through a Javascript function like so:
 
+```
 var keyword = document.querySelector('#search')
 keyword.innerHTML = <script>...</script>
+```
