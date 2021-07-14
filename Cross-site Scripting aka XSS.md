@@ -20,6 +20,8 @@ The extent to the severity of this vulnerability depends on the type of XSS, whi
 
 Who knew this was all possible by just visiting a web-page. There are measures put in place to prevent this from happening by your browser and anti-virus.
 
+---
+
 # Stored XSS
 
 Stored cross-site scripting is the most dangerous type of XSS. This is where a malicious string originates from the websites database. This often happens when a website allows user input that is not sanitised (remove the "bad parts" of a users input) when inserted into the database.
@@ -34,6 +36,8 @@ However, this payload wont just execute in your browser but any other browsers t
 
 Its mostly finds in comment area of any website.
 
+---
+
 # Reflected XSS
 
 In a reflected cross-site scripting attack, the malicious payload is part of the victims request to the website. The website includes this payload in response back to the user. To summarise, an attacker needs to trick a victim into clicking a URL to execute their malicious payload.
@@ -47,6 +51,8 @@ Reflected XSS is the most common type of XSS attack.
 An attacker crafts a URL containing a malicious payload and sends it to the victim. The victim is tricked by the attacker into clicking the URL. The request could be `http://example.com/search?keyword=<script>...</script>`
 
 The website then includes this malicious payload from the request in the response to the user. The victims browser will execute the payload inside the response. The data the script gathered is then sent back to the attacker (it might not necessarily be sent from the victim, but to another website where the attacker then gathers this data - this protects the attacker from directly receiving the victims data).
+
+---
 
 # DOM-Based XSS
 
