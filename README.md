@@ -106,10 +106,158 @@ To make this process easier, many websites use cookies, which are small text fil
 Overall, the use of session IDs and cookies allows a website to identify who is logged in and provide personalized content and functionality to each user.
 
 
+
+
+
+
+# The Internet Vs The Web
+
+- The internet = the global connection of devices over TCP/IP
+- TCP/IP = The networking protocol the internet uses
+- HTTP = A service that uses TCP/IP to interact and display websites
+- Request = A structured piece of text that is sent to a HTTP server
+- Response = The reply to a request that your web browser renders as pretty pictures
+
+
+
+
+# DNS
+
+- We don't usually use IP addresses to access websites though
+	- Instead we use their domain name
+	- Domain names e.g. google.com - human friendly
+	- Sometimes different domains go to different IPs
+- But fundamentally we're using TCP/IP so we need an IP address
+- DNS provides the bridge between domain name and IP
+- Basically big phone books
+
+
+
 ![image](https://user-images.githubusercontent.com/60404663/228424113-e108bee0-24c3-4db8-9ae4-625a2edcd386.png)
+
+# Q. How DNS Works?
+
+- DNS (Domain Name System) is a hierarchical decentralized naming system for computers, services, or other resources connected to the Internet or a private network. DNS is used to translate human-readable domain names, like www.example.com, into machine readable IP addresses, like 192.0.2.1.
+
+- Here's how DNS works:
+
+1. You type a website address (URL) into your web browser.
+
+2. Your computer sends a DNS query to a DNS resolver, which is typically provided by your Internet Service Provider (ISP).
+
+3. If the resolver has the IP address of the website in its cache memory, it returns the IP address to your computer.
+
+4. If the resolver does not have the IP address in its cache, it sends a query to the root DNS servers.
+
+5. The root DNS servers respond with the IP address of the Top-Level Domain (TLD) server, which is responsible for the domain name extension, like .com, .org, or .net.
+
+6. The resolver then sends a query to the TLD server, which responds with the IP address of the authoritative DNS server for the domain name.
+
+7. The resolver sends a query to the authoritative DNS server, which responds with the IP address of the website.
+
+8. The resolver caches the IP address and returns it to your computer.
+
+9. Your computer uses the IP address to connect to the website's server and retrieve the website's content.
+
+This entire process happens in a fraction of a second, and allows you to access any website on the Internet just by typing its domain name into your web browser.
+
+
+
+
+
+
+
+
+# DNS Queries
+
+- When a user wants to access insiderphd.dev
+	- We work backwards
+- First the request is sent to a recursive resolver owned by your ISP
+	- But we need to find an authoritative name server
+- The first step is finding the root name server, this will know TLDs.com/.net/ .dev
+- At the .dev TLD(Top Level Domain) name server we can then look up insiderphd.dev
+- We're then directed to the authoritative name server which for us is dns1.namecheaphosting.com
+
+
+# Q. what is DNS query?
+
+- A DNS query is a request for information sent from a client computer to a DNS server. DNS queries are used to resolve domain names to IP addresses, and they are a fundamental part of how the Internet works.
+
+- When you enter a website address (URL) into your web browser, your computer sends a DNS query to a DNS resolver to obtain the IP address of the website. The DNS resolver will then process the query and return the IP address back to your computer so that your browser can connect to the website.
+
+- A DNS query consists of several parts:
+
+1. The domain name that needs to be resolved
+2. The record type being requested (e.g., A, AAAA, MX, CNAME, etc.)
+3. The class of the query (usually IN for Internet)
+4. The query type (usually recursive or iterative)
+5. The identifier for the query, which is used to match up the query with the response
+
+- DNS queries can be recursive or iterative. In a recursive query, the DNS server will continue to query other DNS servers on behalf of the client until it obtains the requested information. In an iterative query, the DNS server will only provide the best information it has at the time and leave it up to the client to continue querying until it gets the desired result.
+
+- DNS queries are a critical part of the Internet's infrastructure, and they enable users to access websites and other online resources quickly and reliably.
+
 
 ![image](https://user-images.githubusercontent.com/60404663/228424428-51d83414-428a-4cb8-9845-d9d39d04cd92.png)
 
+# DNS Records
+- A = IP address (IPv4 255.255.255.255)
+- AAA = IP address (IPv6)
+- CNAME = Alias to another domain name
+- MX = Email
+- NS = The name servers for the domain name
+- PTR = Reverse IP look up
+- TXT = Allows you to put anything in there
+- SOA = Information about the domain's authority
+
+
+# Q. what is root DNS servers?
+
+- The root DNS servers are a group of authoritative DNS servers that are responsible for the root zone of the Domain Name System (DNS). The root zone is the top level of the DNS hierarchy, and it contains information about the top-level domain (TLD) nameservers, such as .com, .org, .net, etc.
+
+There are 13 root DNS servers distributed across the world, each with its own unique IP address. These servers are maintained by different organizations and are located in different geographical locations to ensure redundancy and reliability of the DNS system.
+
+When a DNS resolver receives a query for a domain name that it does not have in its cache, it sends a query to one of the root DNS servers to obtain the IP address of the authoritative DNS server for the domain name's TLD. The root DNS server responds to the query with the IP address of the TLD nameserver, which the resolver then contacts to obtain the IP address of the authoritative DNS server for the domain name.
+
+The root DNS servers play a critical role in the functioning of the Internet's DNS system. Without them, the DNS system would not be able to resolve domain names to IP addresses, and users would not be able to access websites and other online resources using domain names.
+
+
+# Q. what is TLD nameserver?
+
+- A TLD nameserver is a type of authoritative DNS server that is responsible for maintaining information about the top-level domain (TLD) of the Domain Name System (DNS). TLD nameservers are responsible for handling DNS queries related to domain names that end with their respective TLDs, such as .com, .org, .net, etc.
+
+There are multiple TLD nameservers for each TLD, and they are distributed around the world to ensure redundancy and reliability of the DNS system. The TLD nameservers are operated by the respective organizations that manage the TLDs.
+
+When a DNS resolver receives a query for a domain name, it first contacts one of the root DNS servers to obtain the IP address of the TLD nameserver for the domain name's TLD. The resolver then sends a query to the TLD nameserver to obtain the IP address of the authoritative DNS server for the domain name.
+
+For example, if a user types "www.example.com" into their web browser, the DNS resolver will first contact one of the root DNS servers to obtain the IP address of the .com TLD nameserver. The resolver will then contact the .com TLD nameserver to obtain the IP address of the authoritative DNS server for the "example.com" domain name. The authoritative DNS server will then return the IP address of the website to the resolver, which can then connect to the website's server to retrieve the website's content.
+
+Overall, TLD nameservers play a critical role in the functioning of the DNS system, allowing users to access websites and other online resources using domain names.
+
+
+# Q. what is authoritative DNS server?
+
+- An authoritative DNS server is a type of DNS server that is responsible for storing and providing authoritative information about a specific domain name or set of domain names. When a DNS resolver needs to resolve a domain name to an IP address, it sends a query to the authoritative DNS server for the domain name to obtain the necessary information.
+
+An authoritative DNS server is responsible for providing answers to DNS queries that relate to the domain names it is authoritative for. It has the final say in resolving DNS queries for those domain names, and its responses are considered to be definitive.
+
+There are two types of authoritative DNS servers:
+
+1. Primary authoritative DNS server: The primary authoritative DNS server is responsible for storing the original copy of the DNS zone file for a domain name. It is the only server that can make changes to the zone file, and it transfers updates to secondary DNS servers.
+
+2. Secondary authoritative DNS server: The secondary authoritative DNS server is a backup server that receives updates to the DNS zone file from the primary authoritative DNS server. It is responsible for responding to DNS queries in the event that the primary authoritative DNS server becomes unavailable.
+
+Authoritative DNS servers play a critical role in the functioning of the DNS system. They provide the necessary information to DNS resolvers to enable users to access websites and other online resources using domain names.
+
+
+
+
 ![image](https://user-images.githubusercontent.com/60404663/228430856-653fb09e-8a20-4960-99ae-66316a373953.png)
 
+# Cookies and Sessions
 
+- Sessions are stored on the server cookies are stored in your browser
+- Sessions are deleted on web browser close
+- Cookies can be stored for a long time
+- Log in uses sessions, remember me adds a login cookie
+	- Those cookies then start a new session
