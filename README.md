@@ -106,4 +106,10 @@ To make this process easier, many websites use cookies, which are small text fil
 Overall, the use of session IDs and cookies allows a website to identify who is logged in and provide personalized content and functionality to each user.
 
 
+![image](https://user-images.githubusercontent.com/60404663/228424113-e108bee0-24c3-4db8-9ae4-625a2edcd386.png)
+
+![image](https://user-images.githubusercontent.com/60404663/228424428-51d83414-428a-4cb8-9845-d9d39d04cd92.png)
+
+![image](https://user-images.githubusercontent.com/60404663/228430856-653fb09e-8a20-4960-99ae-66316a373953.png)
+
 
